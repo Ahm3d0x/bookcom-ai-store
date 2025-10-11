@@ -60,7 +60,7 @@
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/your-username/book-com.git
+git clone https://github.com/Ahm3d0x/book-com.git
 cd book-com
 ```
 
