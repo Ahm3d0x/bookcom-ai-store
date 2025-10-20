@@ -16,6 +16,8 @@
 ![Design View 3](./photo/3.png)  
 ![Design View 4](./photo/4.png)  
 ![Design View 5](./photo/5.png)  
+![Design View 6](./photo/6.png)  
+
 
 **Book.com** is a modern, full-featured e-commerce platform designed specifically for Arabic-speaking users to browse and purchase books online. The platform features a stunning user interface, an AI-powered chatbot named "Omar" built with Google Gemini AI, and a comprehensive admin dashboard for inventory management.
 
