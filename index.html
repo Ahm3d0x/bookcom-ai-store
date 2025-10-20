@@ -12,150 +12,150 @@
 </head>
 <body>
     <!-- Main Container -->
-    <div id="main-page" class="min-h-screen p-4">
+    <div id="main-page" class="min-h-screen p-3 sm:p-4 md:p-6">
         <!-- Navigation -->
-        <nav class="glass rounded-2xl p-4 mb-6 slide-in">
-            <div class="container mx-auto flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-800 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">📚</div>
+        <nav class="glass rounded-2xl p-4 sm:p-5 md:p-6 mb-4 sm:mb-6 slide-in">
+            <div class="container mx-auto flex justify-between items-center flex-wrap gap-3 sm:gap-4">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 accent-silver rounded-xl flex items-center justify-center text-white font-bold text-xl sm:text-2xl shadow-2xl border border-white border-opacity-20">📚</div>
                     <div>
-                        <h1 class="text-white text-2xl font-bold">Book.com</h1>
-                        <p class="text-white text-xs opacity-80">أفضل الكتب في مكان واحد</p>
+                        <h1 class="text-white text-xl sm:text-2xl font-bold tracking-tight">Book.com</h1>
+                        <p class="text-gray-400 text-xs sm:text-sm">أفضل الكتب في مكان واحد</p>
                     </div>
                 </div>
-                <button onclick="showAdminLogin()" class="glass px-4 py-2 rounded-xl text-white hover:bg-white hover:bg-opacity-20 transition-all">
+                <button onclick="showAdminLogin()" class="btn-premium px-4 sm:px-6 py-2 sm:py-3 rounded-xl text-white hover:scale-105 transition-all text-sm sm:text-base whitespace-nowrap">
                     🔐 وحدة التحكم
                 </button>
             </div>
         </nav>
 
         <!-- Hero Section -->
-        <div class="glass rounded-2xl p-8 mb-6 text-center slide-in" style="animation-delay: 0.1s">
-            <h2 class="text-4xl font-bold text-white mb-3">اكتشف عالم المعرفة</h2>
-            <p class="text-white text-lg opacity-90 mb-4">آلاف الكتب في انتظارك، اطلب الآن واحصل على أفضل الأسعار</p>
-            <div class="flex gap-3 justify-center flex-wrap">
-                <span class="glass px-4 py-2 rounded-full text-white text-sm">✨ توصيل سريع</span>
-                <span class="glass px-4 py-2 rounded-full text-white text-sm">💳 دفع آمن</span>
-                <span class="glass px-4 py-2 rounded-full text-white text-sm">📞 دعم على مدار الساعة</span>
+        <div class="glass rounded-2xl p-5 sm:p-6 md:p-8 mb-4 sm:mb-6 text-center slide-in" style="animation-delay: 0.1s">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">اكتشف عالم المعرفة</h2>
+            <p class="text-gray-300 text-sm sm:text-base md:text-lg mb-4 sm:mb-5 max-w-2xl mx-auto">آلاف الكتب في انتظارك، اطلب الآن واحصل على أفضل الأسعار</p>
+            <div class="flex gap-2 sm:gap-3 justify-center flex-wrap">
+                <span class="glass px-3 sm:px-4 py-2 rounded-full text-white text-xs sm:text-sm">✨ توصيل سريع</span>
+                <span class="glass px-3 sm:px-4 py-2 rounded-full text-white text-xs sm:text-sm">💳 دفع آمن</span>
+                <span class="glass px-3 sm:px-4 py-2 rounded-full text-white text-xs sm:text-sm">📞 دعم 24/7</span>
             </div>
         </div>
 
         <!-- Search Bar -->
-        <div class="glass rounded-2xl p-4 mb-6 slide-in" style="animation-delay: 0.2s">
+        <div class="glass rounded-2xl p-3 sm:p-4 mb-4 sm:mb-6 slide-in" style="animation-delay: 0.2s">
             <div class="flex gap-2">
-                <input type="text" id="search-input" placeholder="ابحث عن كتابك المفضل..." class="flex-grow px-4 py-3 rounded-xl bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white">
-                <button onclick="searchBooks()" class="bg-gradient-to-r from-blue-600 to-purple-800 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all">بحث 🔍</button>
+                <input type="text" id="search-input" placeholder="ابحث عن كتابك المفضل..." class="flex-grow px-3 sm:px-4 py-2 sm:py-3 rounded-xl bg-black bg-opacity-40 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 border border-gray-700 text-sm sm:text-base">
+                <button onclick="searchBooks()" class="btn-premium text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-bold hover:shadow-lg transition-all text-sm sm:text-base whitespace-nowrap">بحث 🔍</button>
             </div>
         </div>
 
         <!-- Books Grid -->
-        <div id="books-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-6">
-            <div class="text-center col-span-full text-white text-lg py-8">
+        <div id="books-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6 mb-4 sm:mb-6">
+            <div class="text-center col-span-full text-white text-base sm:text-lg py-8">
                 <div class="animate-pulse-slow">📚 جاري تحميل الكتب...</div>
             </div>
         </div>
 
         <!-- Footer Stats -->
-        <div class="glass rounded-2xl p-6 text-center slide-in">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass rounded-2xl p-4 sm:p-5 md:p-6 text-center slide-in">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                 <div>
-                    <div class="text-3xl font-bold text-white" id="total-books">-</div>
-                    <div class="text-white text-sm opacity-80">كتاب متاح</div>
+                    <div class="text-2xl sm:text-3xl font-bold text-white" id="total-books">-</div>
+                    <div class="text-gray-400 text-xs sm:text-sm">كتاب متاح</div>
                 </div>
                 <div>
-                    <div class="text-3xl font-bold text-white" id="total-orders">-</div>
-                    <div class="text-white text-sm opacity-80">طلب مكتمل</div>
+                    <div class="text-2xl sm:text-3xl font-bold text-white" id="total-orders">-</div>
+                    <div class="text-gray-400 text-xs sm:text-sm">طلب مكتمل</div>
                 </div>
                 <div>
-                    <div class="text-3xl font-bold text-white">⭐⭐⭐⭐⭐</div>
-                    <div class="text-white text-sm opacity-80">تقييم العملاء</div>
+                    <div class="text-2xl sm:text-3xl font-bold text-white">⭐⭐⭐⭐⭐</div>
+                    <div class="text-gray-400 text-xs sm:text-sm">تقييم العملاء</div>
                 </div>
                 <div>
-                    <div class="text-3xl font-bold text-white">24/7</div>
-                    <div class="text-white text-sm opacity-80">دعم فني</div>
+                    <div class="text-2xl sm:text-3xl font-bold text-white">24/7</div>
+                    <div class="text-gray-400 text-xs sm:text-sm">دعم فني</div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Admin Login Modal -->
-    <div id="admin-login-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 modal-overlay flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-2xl p-8 max-w-md w-full modal-content shadow-2xl">
+    <div id="admin-login-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 modal-overlay flex items-center justify-center z-50 p-4">
+        <div class="glass rounded-2xl p-6 sm:p-8 max-w-md w-full modal-content shadow-2xl border border-gray-700">
             <div class="text-center mb-6">
-                <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-800 rounded-full mx-auto flex items-center justify-center text-3xl mb-3 shadow-lg">🔐</Div>
-                <h2 class="text-2xl font-bold text-gray-800">وحدة التحكم</h2>
-                <p class="text-gray-600 text-sm">للإدارة فقط</p>
+                <div class="w-16 h-16 accent-silver rounded-full mx-auto flex items-center justify-center text-3xl mb-3 shadow-lg border border-white border-opacity-20">🔐</div>
+                <h2 class="text-2xl font-bold text-white mb-1">وحدة التحكم</h2>
+                <p class="text-gray-400 text-sm">للإدارة فقط</p>
             </div>
             <div class="space-y-4">
-                <input type="text" id="admin-username" placeholder="اسم المستخدم" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none">
-                <input type="password" id="admin-password" placeholder="كلمة المرور" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none">
-                <button onclick="adminLogin()" class="w-full bg-gradient-to-r from-blue-600 to-purple-800 text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all">دخول</button>
-                <button onclick="closeAdminLogin()" class="w-full bg-gray-200 text-gray-700 py-3 rounded-xl font-bold hover:bg-gray-300 transition-all">إلغاء</button>
+                <input type="text" id="admin-username" placeholder="اسم المستخدم" class="w-full px-4 py-3 bg-black bg-opacity-60 border border-gray-600 rounded-xl focus:border-gray-400 focus:outline-none text-white placeholder-gray-500">
+                <input type="password" id="admin-password" placeholder="كلمة المرور" class="w-full px-4 py-3 bg-black bg-opacity-60 border border-gray-600 rounded-xl focus:border-gray-400 focus:outline-none text-white placeholder-gray-500">
+                <button onclick="adminLogin()" class="w-full btn-premium text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all">دخول</button>
+                <button onclick="closeAdminLogin()" class="w-full bg-gray-700 text-white py-3 rounded-xl font-bold hover:bg-gray-600 transition-all">إلغاء</button>
             </div>
         </div>
     </div>
 
     <!-- Admin Dashboard -->
-    <div id="admin-dashboard" class="hidden min-h-screen p-4 bg-gradient-to-br from-gray-900 to-gray-800">
+    <div id="admin-dashboard" class="hidden min-h-screen p-3 sm:p-4 md:p-6 bg-black">
         <div class="container mx-auto">
-            <div class="bg-white rounded-2xl p-6 mb-6 shadow-xl">
-                <div class="flex justify-between items-center">
-                    <h1 class="text-3xl font-bold text-gray-800">🎛️ لوحة التحكم</h1>
-                    <button onclick="logoutAdmin()" class="bg-red-500 text-white px-6 py-2 rounded-xl font-bold hover:bg-red-600">خروج</button>
+            <div class="glass rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 shadow-xl border border-gray-800">
+                <div class="flex justify-between items-center flex-wrap gap-3">
+                    <h1 class="text-2xl sm:text-3xl font-bold text-white">🎛️ لوحة التحكم</h1>
+                    <button onclick="logoutAdmin()" class="bg-red-600 hover:bg-red-700 text-white px-4 sm:px-6 py-2 rounded-xl font-bold transition-all">خروج</button>
                 </div>
             </div>
 
             <!-- Add Book Section -->
-            <div class="bg-white rounded-2xl p-6 mb-6 shadow-xl">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">➕ إضافة كتاب جديد</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" id="new-book-name" placeholder="اسم الكتاب" class="px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none">
-                    <input type="text" id="new-book-author" placeholder="المؤلف" class="px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none">
-                    <input type="number" id="new-book-price" placeholder="السعر (جنيه)" class="px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none">
-                    <input type="number" id="new-book-quantity" placeholder="الكمية" class="px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none">
+            <div class="glass rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 shadow-xl border border-gray-800">
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-4">➕ إضافة كتاب جديد</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                    <input type="text" id="new-book-name" placeholder="اسم الكتاب" class="px-4 py-3 bg-black bg-opacity-60 border border-gray-600 rounded-xl focus:border-gray-400 focus:outline-none text-white placeholder-gray-500">
+                    <input type="text" id="new-book-author" placeholder="المؤلف" class="px-4 py-3 bg-black bg-opacity-60 border border-gray-600 rounded-xl focus:border-gray-400 focus:outline-none text-white placeholder-gray-500">
+                    <input type="number" id="new-book-price" placeholder="السعر (جنيه)" class="px-4 py-3 bg-black bg-opacity-60 border border-gray-600 rounded-xl focus:border-gray-400 focus:outline-none text-white placeholder-gray-500">
+                    <input type="number" id="new-book-quantity" placeholder="الكمية" class="px-4 py-3 bg-black bg-opacity-60 border border-gray-600 rounded-xl focus:border-gray-400 focus:outline-none text-white placeholder-gray-500">
                 </div>
-                <button onclick="addNewBook()" class="mt-4 w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all">إضافة الكتاب</button>
+                <button onclick="addNewBook()" class="mt-4 w-full btn-success text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all">إضافة الكتاب</button>
             </div>
 
             <!-- Inventory Management -->
-            <div class="bg-white rounded-2xl p-6 shadow-xl">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">📦 إدارة المخزون</h2>
+            <div class="glass rounded-2xl p-4 sm:p-6 shadow-xl border border-gray-800">
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-4">📦 إدارة المخزون</h2>
                 <div id="admin-books-list" class="space-y-3 max-h-96 overflow-y-auto">
-                    <div class="text-center text-gray-500 py-8">جاري التحميل...</div>
+                    <div class="text-center text-gray-400 py-8">جاري التحميل...</div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Chat Button -->
-    <button id="open-chat-btn" class="fixed bottom-6 left-6 w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-800 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-40">
+    <button id="open-chat-btn" class="fixed bottom-6 left-6 w-16 h-16 accent-silver text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-40 border border-white border-opacity-20">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
-        <span class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></span>
+        <span class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-black animate-pulse"></span>
     </button>
 
     <!-- Chat Widget -->
-    <div id="chat-widget" class="hidden fixed bottom-24 left-6 w-[380px] bg-white rounded-2xl shadow-2xl flex flex-col z-50" style="height: 550px;">
-        <div class="p-4 bg-gradient-to-r from-blue-600 to-purple-800 text-white rounded-t-2xl">
+    <div id="chat-widget" class="hidden fixed bottom-24 left-6 w-[380px] bg-gradient-to-b from-gray-900 to-black rounded-2xl shadow-2xl flex flex-col z-50 border border-gray-700" style="height: 550px;">
+        <div class="p-4 premium-gradient text-white rounded-t-2xl border-b border-gray-700">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl">🤖</div>
+                    <div class="w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full flex items-center justify-center text-2xl border-2 border-white border-opacity-20">🤖</div>
                     <div>
                         <h3 class="text-lg font-bold">عمر - مساعدك الذكي</h3>
-                        <p class="text-xs flex items-center">
+                        <p class="text-xs flex items-center text-gray-300">
                             <span id="bot-status-text">متصل</span>
                             <span class="status-indicator status-online" id="bot-status-indicator"></span>
                         </p>
                     </div>
                 </div>
-                <button id="close-chat-btn" class="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-lg transition-all">
+                <button id="close-chat-btn" class="text-white hover:bg-white hover:bg-opacity-10 p-2 rounded-lg transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
             </div>
         </div>
         
-        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-gray-50">
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-black">
             <div class="flex justify-start mb-4 slide-in">
-                <div class="bg-gradient-to-r from-blue-600 to-purple-800 text-white rounded-2xl rounded-tr-sm py-3 px-4 max-w-[280px] shadow-lg">
+                <div class="premium-gradient text-white rounded-2xl rounded-tr-sm py-3 px-4 max-w-[280px] shadow-lg border border-gray-700">
                     <p class="font-bold mb-1">مرحباً بك! 👋</p>
                     <p class="text-sm">أنا عمر، مساعدك الشخصي في Book.com. أنا هنا لمساعدتك في:</p>
                     <ul class="text-sm mt-2 space-y-1">
@@ -169,10 +169,10 @@
             </div>
         </div>
         
-        <div class="p-4 border-t bg-white rounded-b-2xl">
+        <div class="p-4 border-t border-gray-700 bg-gray-900 rounded-b-2xl">
             <form id="chat-form" class="flex items-center gap-2">
-                <input type="text" id="message-input" placeholder="اكتب رسالتك هنا..." class="flex-grow px-4 py-2 border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-500 transition-all">
-                <button type="submit" class="bg-gradient-to-r from-blue-600 to-purple-800 text-white p-3 rounded-full hover:shadow-lg transition-all">
+                <input type="text" id="message-input" placeholder="اكتب رسالتك هنا..." class="flex-grow px-4 py-2 bg-black bg-opacity-60 border border-gray-600 text-white rounded-full focus:outline-none focus:border-gray-400 transition-all placeholder-gray-500 text-sm">
+                <button type="submit" class="accent-silver text-white p-3 rounded-full hover:shadow-lg transition-all border border-white border-opacity-20">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
                 </button>
             </form>
@@ -183,12 +183,12 @@
     <div id="notification-container" class="fixed top-6 left-6 z-[100] space-y-3" style="max-width: 400px;"></div>
 
     <!-- Custom Modal -->
-    <div id="custom-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 modal-overlay flex items-center justify-center z-[90] p-4">
-        <div class="bg-white rounded-2xl p-6 max-w-md w-full modal-content shadow-2xl">
+    <div id="custom-modal" class="hidden fixed inset-0 bg-black bg-opacity-85 modal-overlay flex items-center justify-center z-[90] p-4">
+        <div class="glass rounded-2xl p-6 max-w-md w-full modal-content shadow-2xl border border-gray-700">
             <div class="text-center mb-4">
                 <div id="modal-icon" class="text-6xl mb-3"></div>
-                <h3 id="modal-title" class="text-2xl font-bold text-gray-800 mb-2"></h3>
-                <p id="modal-message" class="text-gray-600"></p>
+                <h3 id="modal-title" class="text-2xl font-bold text-white mb-2"></h3>
+                <p id="modal-message" class="text-gray-300"></p>
             </div>
             <div id="modal-buttons" class="flex gap-3 mt-6"></div>
         </div>

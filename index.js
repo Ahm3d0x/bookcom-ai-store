@@ -1,4 +1,3 @@
-
 // ==================== CONFIGURATION ====================
 const GEMINI_API_KEY = 'AIzaSyDfTV1_AxKmOn-e1etgAVOn_0jIvW4kKCg';
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${GEMINI_API_KEY}`;
@@ -20,10 +19,10 @@ function showNotification(message, type = 'info', duration = 4000) {
     const notification = document.createElement('div');
     
     const colors = {
-        success: 'from-green-500 to-emerald-600',
-        error: 'from-red-500 to-rose-600',
-        warning: 'from-amber-500 to-orange-600',
-        info: 'from-blue-600 to-purple-800'
+        success: 'from-green-700 to-green-900',
+        error: 'from-red-700 to-red-900',
+        warning: 'from-amber-700 to-amber-900',
+        info: 'from-gray-600 to-gray-800'
     };
     
     const icons = {
@@ -33,10 +32,10 @@ function showNotification(message, type = 'info', duration = 4000) {
         info: 'ℹ️'
     };
     
-    notification.className = `notification bg-gradient-to-r ${colors[type]} text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3`;
+    notification.className = `notification bg-gradient-to-r ${colors[type]} text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 border border-white border-opacity-20`;
     notification.innerHTML = `
         <span class="text-2xl">${icons[type]}</span>
-        <p class="flex-1 font-semibold">${message}</p>
+        <p class="flex-1 font-semibold text-sm sm:text-base">${message}</p>
         <button onclick="this.parentElement.remove()" class="text-white hover:bg-white hover:bg-opacity-20 p-1 rounded-lg transition-all">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
@@ -65,7 +64,7 @@ function showModal(title, message, icon, buttons = []) {
     buttons.forEach(btn => {
         const button = document.createElement('button');
         button.textContent = btn.text;
-        button.className = `flex-1 py-3 px-4 rounded-xl font-bold transition-all ${btn.class || 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`;
+        button.className = `flex-1 py-3 px-4 rounded-xl font-bold transition-all ${btn.class || 'bg-gray-700 text-white hover:bg-gray-600'}`;
         button.onclick = () => {
             closeModal();
             if (btn.onClick) btn.onClick();
@@ -84,11 +83,11 @@ function showConfirm(title, message, icon, onConfirm) {
     showModal(title, message, icon, [
         {
             text: 'إلغاء',
-            class: 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            class: 'bg-gray-700 text-white hover:bg-gray-600'
         },
         {
             text: 'تأكيد',
-            class: 'bg-gradient-to-r from-blue-600 to-purple-800 text-white hover:shadow-lg',
+            class: 'btn-premium text-white hover:shadow-lg',
             onClick: onConfirm
         }
     ]);
@@ -104,7 +103,7 @@ function showPromptModal(title, message, defaultValue = '', onConfirm) {
     modalTitle.textContent = title;
     modalMessage.innerHTML = `
         <p class="mb-4">${message}</p>
-        <input type="text" id="prompt-input" value="${defaultValue}" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none">
+        <input type="text" id="prompt-input" value="${defaultValue}" class="w-full px-4 py-3 bg-black bg-opacity-60 border border-gray-600 rounded-xl focus:border-gray-400 focus:outline-none text-white placeholder-gray-500">
     `;
     modalIcon.textContent = '✏️';
     
@@ -112,12 +111,12 @@ function showPromptModal(title, message, defaultValue = '', onConfirm) {
     
     const cancelBtn = document.createElement('button');
     cancelBtn.textContent = 'إلغاء';
-    cancelBtn.className = 'flex-1 py-3 px-4 rounded-xl font-bold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-all';
+    cancelBtn.className = 'flex-1 py-3 px-4 rounded-xl font-bold bg-gray-700 text-white hover:bg-gray-600 transition-all';
     cancelBtn.onclick = closeModal;
     
     const confirmBtn = document.createElement('button');
     confirmBtn.textContent = 'تأكيد';
-    confirmBtn.className = 'flex-1 py-3 px-4 rounded-xl font-bold bg-gradient-to-r from-blue-600 to-purple-800 text-white hover:shadow-lg transition-all';
+    confirmBtn.className = 'flex-1 py-3 px-4 rounded-xl font-bold btn-premium text-white hover:shadow-lg transition-all';
     confirmBtn.onclick = () => {
         const value = document.getElementById('prompt-input').value;
         closeModal();
@@ -180,20 +179,20 @@ function displayBooks(books) {
         const quantity = parseInt(book.الكمية) || 0;
         const isAvailable = quantity > 0;
         return `
-            <div class="glass book-card rounded-2xl p-5 slide-in" style="animation-delay: ${index * 0.05}s">
-                <div class="bg-gradient-to-br from-blue-600 to-purple-800 rounded-xl h-48 mb-4 flex items-center justify-center text-6xl shadow-lg">
+            <div class="glass book-card rounded-2xl p-4 sm:p-5 slide-in" style="animation-delay: ${index * 0.05}s">
+                <div class="accent-silver rounded-xl h-40 sm:h-48 mb-4 flex items-center justify-center text-5xl sm:text-6xl shadow-lg border border-white border-opacity-10">
                     📖
                 </div>
-                <h3 class="text-white font-bold text-lg mb-2 line-clamp-2">${book['اسم الكتاب']}</h3>
-                <p class="text-white text-sm opacity-80 mb-3">✍️ ${book.المؤلف || 'غير معروف'}</p>
-                <div class="flex justify-between items-center mb-3">
-                    <span class="text-yellow-300 font-bold text-xl">${book.السعر} جنيه</span>
-                    <span class="text-white text-sm ${isAvailable ? 'bg-green-500' : 'bg-red-500'} px-3 py-1 rounded-full">
+                <h3 class="text-white font-bold text-base sm:text-lg mb-2 line-clamp-2">${book['اسم الكتاب']}</h3>
+                <p class="text-gray-400 text-sm mb-3">✏️ ${book.المؤلف || 'غير معروف'}</p>
+                <div class="flex justify-between items-center mb-3 flex-wrap gap-2">
+                    <span class="text-yellow-400 font-bold text-lg sm:text-xl">${book.السعر} جنيه</span>
+                    <span class="text-white text-xs sm:text-sm ${isAvailable ? 'bg-green-700' : 'bg-red-700'} px-3 py-1 rounded-full border border-white border-opacity-20">
                         ${isAvailable ? `✅ ${quantity} متوفر` : '❌ غير متوفر'}
                     </span>
                 </div>
                 <button onclick="quickOrder('${book['اسم الكتاب'].replace(/'/g, "\\'")}')" 
-                        class="w-full ${isAvailable ? 'bg-gradient-to-r from-green-500 to-blue-600' : 'bg-gray-500 cursor-not-allowed'} text-white py-2 rounded-xl font-bold hover:shadow-lg transition-all"
+                        class="w-full ${isAvailable ? 'btn-success' : 'bg-gray-700 cursor-not-allowed'} text-white py-2 sm:py-3 rounded-xl font-bold hover:shadow-lg transition-all text-sm sm:text-base"
                         ${!isAvailable ? 'disabled' : ''}>
                     ${isAvailable ? '🛒 اطلب الآن' : 'غير متوفر'}
                 </button>
@@ -419,28 +418,28 @@ function displaySingleBook(book) {
     const isAvailable = quantity > 0;
     
     const bookHTML = `
-        <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-4 shadow-md">
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 shadow-md border border-gray-700">
             <div class="flex items-center gap-3 mb-3">
                 <div class="text-4xl">📚</div>
                 <div class="flex-1">
-                    <h4 class="font-bold text-lg text-gray-800">${book['اسم الكتاب']}</h4>
-                    <p class="text-sm text-gray-600">✍️ ${book.المؤلف || 'غير معروف'}</p>
+                    <h4 class="font-bold text-lg text-white">${book['اسم الكتاب']}</h4>
+                    <p class="text-sm text-gray-400">✏️ ${book.المؤلف || 'غير معروف'}</p>
                 </div>
             </div>
-            <div class="flex justify-between items-center mb-3">
-                <span class="text-2xl font-bold text-orange-600">${book.السعر} جنيه 💰</span>
-                <span class="text-sm px-3 py-1 rounded-full ${isAvailable ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}">
+            <div class="flex justify-between items-center mb-3 flex-wrap gap-2">
+                <span class="text-2xl font-bold text-yellow-400">${book.السعر} جنيه 💰</span>
+                <span class="text-sm px-3 py-1 rounded-full ${isAvailable ? 'bg-green-700 text-green-200' : 'bg-red-700 text-red-200'}">
                     ${isAvailable ? `✅ متوفر (${quantity})` : '❌ غير متوفر'}
                 </span>
             </div>
             ${isAvailable ? `
                 <div class="space-y-2">
                     <button onclick="addBookToOrder('${book['اسم الكتاب'].replace(/'/g, "\\'")}', 1)" 
-                            class="w-full bg-gradient-to-r from-green-500 to-blue-600 text-white py-2 rounded-lg font-bold hover:shadow-lg transition-all">
+                            class="w-full btn-success text-white py-2 rounded-lg font-bold hover:shadow-lg transition-all">
                         ➕ أضف للطلب
                     </button>
                 </div>
-            ` : '<p class="text-center text-gray-500 text-sm">سنخبرك عند توفره 🔔</p>'}
+            ` : '<p class="text-center text-gray-400 text-sm">سنخبرك عند توفره 📧</p>'}
         </div>
     `;
     
@@ -448,26 +447,26 @@ function displaySingleBook(book) {
 }
 
 function displayMultipleBooks(books, searchTerm) {
-    let html = `<div class="space-y-2"><p class="font-bold text-gray-800 mb-2">وجدت ${books.length} كتاب مطابق لـ "${searchTerm}":</p>`;
+    let html = `<div class="space-y-2"><p class="font-bold text-white mb-2">وجدت ${books.length} كتاب مطابق لـ "${searchTerm}":</p>`;
     
     books.forEach((book, index) => {
         const quantity = parseInt(book.الكمية) || 0;
         const isAvailable = quantity > 0;
         html += `
-            <div class="bg-white rounded-lg p-3 shadow-sm border-2 border-gray-100">
+            <div class="bg-gray-800 rounded-lg p-3 shadow-sm border border-gray-700">
                 <div class="flex justify-between items-start mb-2">
                     <div class="flex-1">
-                        <h5 class="font-bold text-gray-800">${index + 1}. ${book['اسم الكتاب']}</h5>
-                        <p class="text-xs text-gray-600">${book.المؤلف || 'غير معروف'}</p>
+                        <h5 class="font-bold text-white text-sm">${index + 1}. ${book['اسم الكتاب']}</h5>
+                        <p class="text-xs text-gray-400">${book.المؤلف || 'غير معروف'}</p>
                     </div>
-                    <span class="text-orange-600 font-bold">${book.السعر} ج</span>
+                    <span class="text-yellow-400 font-bold text-sm">${book.السعر} ج</span>
                 </div>
                 ${isAvailable ? `
                     <button onclick="addBookToOrder('${book['اسم الكتاب'].replace(/'/g, "\\'")}', 1)" 
-                            class="w-full bg-blue-500 text-white py-1 px-3 rounded text-sm hover:bg-blue-600 transition-all">
+                            class="w-full bg-green-700 text-white py-1 px-3 rounded text-sm hover:bg-green-600 transition-all">
                         ➕ أضف (${quantity} متوفر)
                     </button>
-                ` : '<p class="text-center text-red-500 text-xs">غير متوفر</p>'}
+                ` : '<p class="text-center text-red-400 text-xs">غير متوفر</p>'}
             </div>
         `;
     });
@@ -513,34 +512,34 @@ function showOrderSummary() {
     const total = orderDetails.books.reduce((sum, book) => sum + (book.price * book.quantity), 0);
     
     let html = `
-        <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-4 shadow-md">
-            <h4 class="font-bold text-gray-800 mb-3 text-center">🛒 طلبك الحالي</h4>
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 shadow-md border border-gray-700">
+            <h4 class="font-bold text-white mb-3 text-center">🛒 طلبك الحالي</h4>
             <div class="space-y-2 mb-3">
     `;
     
     orderDetails.books.forEach((book, index) => {
         html += `
-            <div class="flex justify-between items-center bg-white rounded-lg p-2 text-sm">
-                <span class="font-semibold">${index + 1}. ${book.name}</span>
-                <span class="text-gray-600">× ${book.quantity}</span>
-                <span class="text-orange-600 font-bold">${(book.price * book.quantity).toFixed(2)} ج</span>
+            <div class="flex justify-between items-center bg-black bg-opacity-40 rounded-lg p-2 text-sm border border-gray-700">
+                <span class="font-semibold text-white">${index + 1}. ${book.name}</span>
+                <span class="text-gray-400">× ${book.quantity}</span>
+                <span class="text-yellow-400 font-bold">${(book.price * book.quantity).toFixed(2)} ج</span>
             </div>
         `;
     });
     
     html += `
             </div>
-            <div class="border-t-2 border-gray-300 pt-2 mb-3">
+            <div class="border-t border-gray-700 pt-2 mb-3">
                 <div class="flex justify-between items-center font-bold text-lg">
-                    <span>الإجمالي:</span>
-                    <span class="text-green-600">${total.toFixed(2)} جنيه 💰</span>
+                    <span class="text-white">الإجمالي:</span>
+                    <span class="text-green-400">${total.toFixed(2)} جنيه 💰</span>
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-2">
-                <button onclick="continueOrder()" class="bg-gradient-to-r from-green-500 to-blue-600 text-white py-2 rounded-lg font-bold text-sm hover:shadow-lg transition-all">
+                <button onclick="continueOrder()" class="btn-success text-white py-2 rounded-lg font-bold text-sm hover:shadow-lg transition-all">
                     ✅ إتمام الطلب
                 </button>
-                <button onclick="addMoreBooks()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 rounded-lg font-bold text-sm hover:shadow-lg transition-all">
+                <button onclick="addMoreBooks()" class="btn-premium text-white py-2 rounded-lg font-bold text-sm hover:shadow-lg transition-all">
                     ➕ إضافة المزيد
                 </button>
             </div>
@@ -714,7 +713,7 @@ function addMessage(text, sender, isHTML = false) {
     bubble.classList.add('rounded-2xl', 'py-3', 'px-4', 'max-w-[280px]', 'shadow-md');
     
     if (sender === 'user') {
-        bubble.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-purple-800', 'text-white', 'rounded-br-sm');
+        bubble.classList.add('bg-gray-700', 'text-white', 'rounded-br-sm');
     } else {
         bubble.classList.add('bg-white', 'text-gray-800', 'rounded-bl-sm');
     }
