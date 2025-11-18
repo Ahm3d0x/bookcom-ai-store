@@ -1,5 +1,5 @@
 // ==================== CONFIGURATION ====================
-const GEMINI_API_KEY = 'AIzaSyDfTV1_AxKmOn-e1etgAVOn_0jIvW4kKCg';
+const GEMINI_API_KEY = 'AIzaSyAEA1TD0jGUnA2zUPlan9sbVwpQjvZ9NsE';
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${GEMINI_API_KEY}`;
 const INVENTORY_API_URL = 'https://sheetdb.io/api/v1/sxi67bbyq81eb';
 const ORDERS_API_URL = 'https://sheetdb.io/api/v1/sxi67bbyq81eb';
